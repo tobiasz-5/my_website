@@ -1,0 +1,74 @@
+/* /src/components/sidebar.module.css */
+
+.sidebar {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  z-index: 10000;
+}
+
+.dot,
+.square {
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  border: 1px solid gray;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.white .dot,
+.white .square {
+  border-color: #0070ff;
+  background-color: #0070ff;
+}
+
+.black .dot,
+.black .square {
+  border-color: #00ff64;
+  background-color: #00ff64;
+}
+
+.dot {
+  border-radius: 4px;
+}
+
+.square {
+  border-radius: 0px;
+}
+
+.activeWhite {
+  border-color: #0070ff;
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+.activeBlack {
+  border-color: #00ff64;
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+.separator {
+  width: 1px;
+  height: 170px;
+  background-color: #ccc;
+  opacity: 0.3;
+  transition: background-color 0.5s ease, opacity 0.5s ease;
+}
+
+.white .separator {
+  background-color: #0070ff;
+  opacity: 0.6;
+}
+
+.black .separator {
+  background-color: #00ff64;
+  opacity: 0.6;
+}

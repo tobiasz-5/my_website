@@ -1,0 +1,120 @@
+/* /src/app/page.module.css */
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    scroll-behavior: smooth;
+  }
+  
+  .whiteSection {
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .blackSection {
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .boxContainer {
+    padding-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(2, 180px);
+    grid-template-rows: repeat(2, 80px);
+    z-index: 2;
+    border-collapse: collapse;
+  }
+  
+  .boxWhite {
+    background: rgba(255, 255, 255, 0.6);
+    color: #0070ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    box-sizing: border-box;
+  }
+  
+  .boxWhite:hover {
+    box-shadow: 0 4px 20px rgba(0, 112, 255, 0.3);
+  }
+  
+  .boxBlack {
+    background: rgba(0, 0, 0, 0.6);
+    color: #00ff64;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    box-sizing: border-box;
+  }
+  
+  .boxBlack:hover {
+    box-shadow: 0 4px 20px rgba(0, 255, 100, 0.3);
+  }
+  
+  /* Border logic to avoid double thickness */
+  .topLeft {
+    border-top: 1px solid currentColor;
+    border-left: 1px solid currentColor;
+  }
+  
+  .topRight {
+    border-top: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+  }
+  
+  .bottomLeft {
+    border-bottom: 1px solid currentColor;
+    border-left: 1px solid currentColor;
+  }
+  
+  .bottomRight {
+    border-bottom: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+  }
+  
+  .video {
+    /* width: 80%; */
+    width: 360px;
+    height: 160px;
+    display: block;
+    margin: 40px auto 0 auto;
+    /* border-radius: 12px; */
+  }
+
+  /* Versione responsive (tablet e mobile) */
+@media (max-width: 600px) {
+    .boxContainer {
+      grid-template-columns: repeat(2, 35vw); /* 2 colonne adattive */
+      grid-template-rows: repeat(2, 24vw);    /* altezza proporzionata */
+    }
+  
+    .boxWhite,
+    .boxBlack {
+      font-size: 14px;
+    }
+  
+    .video {
+      max-width: 70vw;
+      margin-top: 20px;
+    }
+  }
+  

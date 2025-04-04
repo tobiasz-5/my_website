@@ -1,7 +1,6 @@
 // /src/app/page.tsx
 'use client';
 
-import { motion } from 'framer-motion';
 import styles from './page.module.css';
 import Link from 'next/link';
 import MouseTrail from '../components/MouseTrail';
@@ -17,7 +16,6 @@ const links = [
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<'white' | 'black'>('white');
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,12 +24,7 @@ export default function Home() {
       setActiveSection(scrollY < viewportHeight / 2 ? 'white' : 'black');
     };
 
-    const detectTouch = () => {
-      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
-    };
-
     window.addEventListener('scroll', handleScroll);
-    detectTouch();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -57,15 +50,13 @@ export default function Home() {
       <section id="white" className={styles.whiteSection}>
         <div className={styles.boxContainer}>
           {links.map((link, i) => (
-            <motion.a
+            <a
               key={link.href + 'white'}
               href={link.href}
               className={`${styles.boxWhite} ${whiteBoxOrder[i]}`}
-              whileHover={!isTouchDevice ? { background: 'linear-gradient(to top, rgba(0, 112, 255, 0.3), transparent)' } : {}}
-              whileTap={isTouchDevice ? { background: 'linear-gradient(to top, rgba(0, 112, 255, 0.3), transparent)' } : {}}
             >
               {link.label}
-            </motion.a>
+            </a>
           ))}
         </div>
         <video
@@ -82,20 +73,18 @@ export default function Home() {
       <section id="black" className={styles.blackSection}>
         <div className={styles.boxContainer}>
           {links.map((link, i) => (
-            <motion.a
+            <a
               key={link.href + 'black'}
               href={link.href}
               className={`${styles.boxBlack} ${blackBoxOrder[i]}`}
-              whileHover={!isTouchDevice ? { background: 'linear-gradient(to top, rgba(0, 255, 100, 0.3), transparent)' } : {}}
-              whileTap={isTouchDevice ? { background: 'linear-gradient(to top, rgba(0, 255, 100, 0.3), transparent)' } : {}}
             >
               {link.label}
-            </motion.a>
+            </a>
           ))}
         </div>
         <video
           className={styles.video}
-          src="/black_tear_mysite.mp4"
+          src="/blue_flower_mysite.mp4"
           autoPlay
           muted
           loop

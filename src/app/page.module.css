@@ -90,6 +90,14 @@
     border-bottom: 1px solid currentColor;
     border-right: 1px solid currentColor;
   }
+
+  .boxWhite:hover {
+    background: linear-gradient(to top, rgba(0, 112, 255, 0.3), transparent);
+  }
+  
+  .boxBlack:hover {
+    background: linear-gradient(to top, rgba(0, 255, 100, 0.3), transparent);
+  }
   
   .video {
     /* width: 80%; */
@@ -117,4 +125,6 @@
       margin-top: 20px;
     }
   }
+
+
   

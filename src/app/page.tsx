@@ -2,7 +2,7 @@
 'use client';
 
 import styles from './page.module.css';
-import Link from 'next/link';
+// import Link from 'next/link';
 import MouseTrail from '../components/MouseTrail';
 import SidebarNavigation from '../components/SidebarNavigation';
 import { useEffect, useState } from 'react';

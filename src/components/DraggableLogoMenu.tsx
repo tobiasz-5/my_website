@@ -46,12 +46,11 @@ export default function DraggableLogoMenu() {
     <motion.div
       drag
       dragMomentum={false}
-    //   dragConstraints={constraints}
-    dragElastic={0.2}
+      dragConstraints={constraints}
       style={{
         position: 'fixed',
         top: 33,
-        right: 42,
+        left: 42,
         width: 182,
         height: 92,
         zIndex: 10000,

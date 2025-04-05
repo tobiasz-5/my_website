@@ -12,6 +12,7 @@ export default function DraggableLogoMenu() {
     right: 0,
     bottom: 0,
   });
+  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,8 +25,8 @@ export default function DraggableLogoMenu() {
       setConstraints({
         left: 0,
         top: 0,
-        right: window.innerWidth - 60,
-        bottom: window.innerHeight - 60,
+        right: window.innerWidth - 182,
+        bottom: window.innerHeight - 92,
       });
     };
 
@@ -45,16 +46,21 @@ export default function DraggableLogoMenu() {
     <motion.div
       drag
       dragMomentum={false}
-      dragConstraints={constraints}
+    //   dragConstraints={constraints}
+    dragElastic={0.2}
       style={{
         position: 'fixed',
-        top: 20,
-        left: 20,
+        top: 33,
+        right: 42,
         width: 182,
         height: 92,
         zIndex: 10000,
         cursor: 'grab',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
       }}
+      onClick={() => setClicked(!clicked)}
     >
       <motion.img
         src={logoSrc}
@@ -62,6 +68,18 @@ export default function DraggableLogoMenu() {
         style={{ width: '100%', height: '100%' }}
         draggable={false}
       />
+      {clicked && (
+        <span
+          style={{
+            color: activeSection === 'white' ? '#0070ff' : '#00ff64',
+            fontSize: '0.8rem',
+            marginTop: 8,
+            fontWeight: 'bold',
+          }}
+        >
+          it will be a menu
+        </span>
+      )}
     </motion.div>
   );
 }

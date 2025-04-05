@@ -15,14 +15,14 @@ export default function MouseTrail() {
       const absoluteY = y + window.scrollY;
 
       const pageHeight = window.innerHeight;
-      const currentColor = absoluteY < pageHeight ? '#FFB800' : '#FF5500';
+      const currentColor = absoluteY < pageHeight ? '#FF0000' : '#FF5500';
 
       const id = idCounter.current++;
       setTrails((prev) => [...prev, { x, y: absoluteY, id, color: currentColor }]);
 
       setTimeout(() => {
         setTrails((prev) => prev.filter((t) => t.id !== id));
-      }, 300);
+      }, 700);
     };
 
     window.addEventListener('mousemove', handleMove);
@@ -43,13 +43,13 @@ export default function MouseTrail() {
             position: 'absolute',
             top: trail.y,
             left: trail.x,
-            width: 7,
-            height: 5,
+            width: 9,
+            height: 4,
             backgroundColor: trail.color,
-            borderRadius: '50%',
+            borderRadius: '100%',
             pointerEvents: 'none',
             transform: 'translate(-50%, -50%)',
-            opacity: 1,
+            // opacity: 0.51,
             filter: 'blur(9px)',
             transition: 'opacity 0.5s ease-out',
             zIndex: 9999,

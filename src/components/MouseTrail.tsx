@@ -22,7 +22,7 @@ export default function MouseTrail() {
 
       setTimeout(() => {
         setTrails((prev) => prev.filter((t) => t.id !== id));
-      }, 700);
+      }, 80);
     };
 
     window.addEventListener('mousemove', handleMove);
@@ -43,14 +43,14 @@ export default function MouseTrail() {
             position: 'absolute',
             top: trail.y,
             left: trail.x,
-            width: 9,
+            width: 4,
             height: 4,
             backgroundColor: trail.color,
             borderRadius: '100%',
             pointerEvents: 'none',
             transform: 'translate(-50%, -50%)',
             // opacity: 0.51,
-            filter: 'blur(9px)',
+            filter: 'blur(1px)',
             transition: 'opacity 0.5s ease-out',
             zIndex: 9999,
           }}

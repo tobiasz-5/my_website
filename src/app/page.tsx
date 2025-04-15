@@ -6,6 +6,7 @@ import styles from './page.module.css';
 import MouseTrail from '../components/MouseTrail';
 import SidebarNavigation from '../components/SidebarNavigation';
 import DraggableLogoMenu from '../components/DraggableLogoMenu';
+import WhoAmI from '../components/WhoAmI';
 import { useEffect, useState } from 'react';
 
 const links = [
@@ -49,6 +50,7 @@ export default function Home() {
       <SidebarNavigation activeSection={activeSection} />
       <DraggableLogoMenu />
       <section id="white" className={styles.whiteSection}>
+        <WhoAmI isDarkMode={false} />
         <div className={styles.boxContainer}>
           {links.map((link, i) => (
             <a
@@ -72,6 +74,7 @@ export default function Home() {
       </section>
 
       <section id="black" className={styles.blackSection}>
+        <WhoAmI isDarkMode={true} />
         <div className={styles.boxContainer}>
           {links.map((link, i) => (
             <a

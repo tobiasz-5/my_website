@@ -17,8 +17,16 @@ export default function DraggableLogoMenu() {
     const handleScroll = () => {
       const blackSection = document.getElementById('black');
       if (!blackSection) return;
-      const blackOffset = blackSection.offsetTop;
-      setActiveSection(window.scrollY < blackOffset ? 'white' : 'black');
+
+      // Ottieni i dati di bounding rect
+      const rect = blackSection.getBoundingClientRect();
+
+      // Se la sezione "black" è a meno di "metà viewport" dal top, attiva "black"; altrimenti "white"
+      if (rect.top + 200 < window.innerHeight / 2) {
+        setActiveSection('black');
+      } else {
+        setActiveSection('white');
+      }
     };
 
     const updateConstraints = () => {
@@ -34,7 +42,7 @@ export default function DraggableLogoMenu() {
     window.addEventListener('resize', updateConstraints);
 
     updateConstraints();
-    handleScroll(); // ✅ aggiorna subito la sezione attiva appena carica
+    handleScroll(); // Chiama subito per inizializzare
 
     return () => {
       window.removeEventListener('scroll', handleScroll);

@@ -106,11 +106,8 @@ export default function ContactVertical({ isDarkMode = false }: { isDarkMode?: b
         }}
       >
         <p>
-          You can reach me at: <br />
           <strong>schettinitobia@gmail.com</strong> <br />
-          Or find me on LinkedIn, GitHub, and other platforms. <br />
-          <br />
-          I&apos;m always open to collaborations and freelance projects!
+          always open to collaborations and freelance projects!
         </p>
       </div>
     </div>

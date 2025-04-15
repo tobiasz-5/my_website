@@ -105,8 +105,7 @@ export default function AboutMeVertical({ isDarkMode = false }: { isDarkMode?: b
         }}
       >
         <p>
-        Ho una formazione in filosofia e attualmente studio alla scuola 42.
-        Nel tempo libero produco musica e viaggio.
+        Sono laureato in filosofia e attualmente studente alla scuola 42
         </p>
       </div>
     </div>

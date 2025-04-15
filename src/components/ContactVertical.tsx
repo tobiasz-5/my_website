@@ -89,7 +89,7 @@ export default function ContactVertical({ isDarkMode = false }: { isDarkMode?: b
           You can reach me at: <br />
           <strong>tobia@example.com</strong> <br />
           Or find me on LinkedIn, GitHub, and other platforms. <br /><br />
-          I'm always open to collaborations, freelance projects, or just having a coffee chat about tech and design!
+          I m always open to collaborations, freelance projects, or just having a coffee chat about tech and design!
         </p>
       </div>
     </div>

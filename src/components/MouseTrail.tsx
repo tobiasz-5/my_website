@@ -50,7 +50,7 @@ export default function MouseTrail() {
             pointerEvents: 'none',
             transform: 'translate(-50%, -50%)',
             // opacity: 0.51,
-            filter: 'blur(1px)',
+            filter: 'blur(2px)',
             transition: 'opacity 0.5s ease-out',
             zIndex: 9999,
           }}

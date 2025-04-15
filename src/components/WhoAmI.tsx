@@ -8,7 +8,7 @@ export default function WhoAmI({ isDarkMode = false }: { isDarkMode?: boolean })
   const arrowColor = textColor;
 
   return (
-    <div style={{ textAlign: 'center', paddingTop: '2rem', width: '100%' }}>
+    <div style={{ textAlign: 'center', marginTop: '-120px', width: '100%' }}>
       <h1
         onClick={() => setIsOpen(!isOpen)}
         style={{
@@ -16,13 +16,14 @@ export default function WhoAmI({ isDarkMode = false }: { isDarkMode?: boolean })
           fontWeight: 'bold',
           color: textColor,
           cursor: 'pointer',
-          marginBottom: '0.5rem',
+          
+        //   marginBottom: '0.3rem', // spazio ridotto sotto "whoami"
         }}
       >
         whoami
       </h1>
       
-      {/* Contenitore animato per il testo */}
+      {/* Contenitore animato per il testo (tra whoami e freccetta) */}
       <div
         style={{
           maxHeight: isOpen ? '200px' : '0px',
@@ -34,13 +35,13 @@ export default function WhoAmI({ isDarkMode = false }: { isDarkMode?: boolean })
         <p
           style={{
             fontSize: '1rem',
-            maxWidth: '600px',
+            maxWidth: '800px',
             margin: '0 auto',
             color: textColor,
-            lineHeight: 1.6,
+            // lineHeight: 1.6,
           }}
         >
-          Hello, I'm Tobia Schettini, a full stack developer passioned in new technologies and design.
+          Hello, I&apos;m Tobia Schettini, a full stack developer passioned in new technologies and design.
         </p>
       </div>
       
@@ -52,20 +53,23 @@ export default function WhoAmI({ isDarkMode = false }: { isDarkMode?: boolean })
           fontSize: '2rem',
           color: arrowColor,
           transition: 'transform 0.3s ease',
-          transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-          marginBottom: '1rem',
+        //   transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+        transform: isOpen ? 'rotate(180deg) translateY(-31px)' : 'rotate(0deg) translateY(0px)',
+          marginTop: '-30px'
+        //   margin: '0 40px', // spazio ridotto sopra e sotto la freccia
         }}
       >
         ⌄
       </div>
       
-      {/* Linea separatrice che occupa tutta la larghezza */}
+      {/* Linea separatrice */}
       <hr
         style={{
           border: 'none',
           borderTop: `1px solid ${textColor}`,
           width: '100%',
-          margin: '2rem 0',
+          marginTop: '-0px'
+        //   margin: '1rem 0', 
         }}
       />
     </div>

@@ -16,10 +16,12 @@ export default function DraggableLogoMenu() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const viewportHeight = window.innerHeight;
-      setActiveSection(scrollY < viewportHeight / 2 ? 'white' : 'black');
+      const blackSection = document.getElementById('black');
+      if (!blackSection) return;
+      const blackOffset = blackSection.offsetTop;
+      setActiveSection(window.scrollY < blackOffset ? 'white' : 'black');
     };
+    
 
     const updateConstraints = () => {
       setConstraints({

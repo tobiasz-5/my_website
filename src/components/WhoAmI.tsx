@@ -1,5 +1,6 @@
 'use client';
 
+import styles from './WhoAmI.module.css';
 import { useState } from 'react';
 
 export default function WhoAmI({ isDarkMode = false }: { isDarkMode?: boolean }) {
@@ -11,16 +12,17 @@ export default function WhoAmI({ isDarkMode = false }: { isDarkMode?: boolean })
     <div style={{ textAlign: 'center', marginTop: '-120px', width: '100%' }}>
       <h1
         onClick={() => setIsOpen(!isOpen)}
+        className={styles.title}
         style={{
-          fontSize: '2.5rem',
-          fontWeight: 'bold',
           color: textColor,
           cursor: 'pointer',
+          fontSize: '1.2rem',
+          letterSpacing: '0.42rem'
           
         //   marginBottom: '0.3rem', // spazio ridotto sotto "whoami"
         }}
       >
-        whoami
+        WHOAMI
       </h1>
       
       {/* Contenitore animato per il testo (tra whoami e freccetta) */}
@@ -34,7 +36,7 @@ export default function WhoAmI({ isDarkMode = false }: { isDarkMode?: boolean })
       >
         <p
           style={{
-            fontSize: '1rem',
+            fontSize: '0.9rem',
             maxWidth: '800px',
             margin: '0 auto',
             color: textColor,

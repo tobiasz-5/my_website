@@ -2,6 +2,8 @@
 'use client';
 
 import styles from './page.module.css';
+import AboutMeVertical from '../components/AboutMeVertical';
+import ContactVertical from '../components/ContactVertical';
 // import Link from 'next/link';
 import MouseTrail from '../components/MouseTrail';
 import SidebarNavigation from '../components/SidebarNavigation';
@@ -49,6 +51,9 @@ export default function Home() {
       <MouseTrail />
       <SidebarNavigation activeSection={activeSection} />
       <DraggableLogoMenu />
+      <AboutMeVertical isDarkMode={activeSection === 'black'} />
+      <ContactVertical isDarkMode={activeSection === 'black'} />
+
       <section id="white" className={styles.whiteSection}>
         <WhoAmI isDarkMode={false} />
         <div className={styles.boxContainer}>

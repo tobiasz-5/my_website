@@ -1,4 +1,3 @@
-// /src/components/DraggableLogoMenu.tsx
 'use client';
 
 import { motion } from 'framer-motion';
@@ -21,7 +20,6 @@ export default function DraggableLogoMenu() {
       const blackOffset = blackSection.offsetTop;
       setActiveSection(window.scrollY < blackOffset ? 'white' : 'black');
     };
-    
 
     const updateConstraints = () => {
       setConstraints({
@@ -34,7 +32,9 @@ export default function DraggableLogoMenu() {
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', updateConstraints);
+
     updateConstraints();
+    handleScroll(); // ✅ aggiorna subito la sezione attiva appena carica
 
     return () => {
       window.removeEventListener('scroll', handleScroll);

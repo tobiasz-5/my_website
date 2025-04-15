@@ -1,27 +1,46 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function AboutMeVertical({ isDarkMode = false }: { isDarkMode?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const textColor = isDarkMode ? '#00FF88' : '#0070f3';
   const arrow = isOpen ? '>' : '<';
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 600);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Valori responsivi
+  const closedWidth = isMobile ? '40px' : '50px';
+  const openWidth = isMobile ? '150px' : '320px';
+  const padding = isMobile ? '8px 4px' : '10px 5px';
+  const fontSizeTitle = isMobile ? '0.9rem' : '1.1rem';
+  const fontSizeArrow = isMobile ? '0.9rem' : '1.1rem';
+  const fontSizeContent = isMobile ? '0.7rem' : '0.8rem';
 
   return (
     <div
       style={{
         position: 'fixed',
         top: '50%',
-        right: isOpen ? '320px' : '50px',
+        right: isOpen ? openWidth : closedWidth,
         transform: 'translateY(-50%)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         zIndex: 9997,
-        width: isOpen ? '320px' : '50px',
-        transition: 'width 0.5s ease',
+        width: isOpen ? openWidth : closedWidth,
+        transition: 'all 0.5s ease',
         background: isDarkMode ? 'black' : 'white',
-        padding: '10px 5px',
+        padding: padding,
         boxShadow: isOpen ? `-4px 0 12px rgba(0, 0, 0, 0.2)` : 'none',
         overflow: 'visible',
       }}
@@ -43,7 +62,7 @@ export default function AboutMeVertical({ isDarkMode = false }: { isDarkMode?: b
         <h2
           style={{
             margin: 0,
-            fontSize: '1.2rem',
+            fontSize: fontSizeTitle,
             color: textColor,
             cursor: 'pointer',
             userSelect: 'none',
@@ -60,7 +79,7 @@ export default function AboutMeVertical({ isDarkMode = false }: { isDarkMode?: b
         onClick={() => setIsOpen(!isOpen)}
         style={{
           marginTop: '10px',
-          fontSize: '1.5rem',
+          fontSize: fontSizeArrow,
           color: textColor,
           cursor: 'pointer',
           transition: 'transform 0.3s ease',
@@ -81,19 +100,13 @@ export default function AboutMeVertical({ isDarkMode = false }: { isDarkMode?: b
           paddingLeft: isOpen ? '10px' : '0',
           paddingRight: isOpen ? '10px' : '0',
           textAlign: 'left',
-          fontSize: '0.9rem',
+          fontSize: fontSizeContent,
           lineHeight: '1.4',
         }}
       >
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet libero non metus facilisis
-          suscipit. Nulla facilisi. Vestibulum ullamcorper, libero a volutpat facilisis, purus metus
-          fermentum est, sed sagittis diam purus nec arcu. Pellentesque ac feugiat risus. Integer
-          condimentum lectus vitae orci eleifend, nec blandit mauris fermentum. Proin nec posuere lorem,
-          vel fermentum diam. Ut laoreet, orci sed fringilla facilisis, risus eros commodo justo, sit amet
-          tristique lorem magna a magna. Suspendisse potenti. Curabitur at felis velit. In hac habitasse
-          platea dictumst. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-          turpis egestas.
+        Ho una formazione in filosofia e attualmente studio alla scuola 42.
+        Nel tempo libero produco musica e viaggio.
         </p>
       </div>
     </div>

@@ -21,6 +21,30 @@ export default function WhoAmI({ isDarkMode = false }: { isDarkMode?: boolean })
       >
         whoami
       </h1>
+      
+      {/* Contenitore animato per il testo */}
+      <div
+        style={{
+          maxHeight: isOpen ? '200px' : '0px',
+          opacity: isOpen ? 1 : 0,
+          overflow: 'hidden',
+          transition: 'max-height 0.5s ease, opacity 0.5s ease',
+        }}
+      >
+        <p
+          style={{
+            fontSize: '1rem',
+            maxWidth: '600px',
+            margin: '0 auto',
+            color: textColor,
+            lineHeight: 1.6,
+          }}
+        >
+          Hello, I'm Tobia Schettini, a full stack developer passioned in new technologies and design.
+        </p>
+      </div>
+      
+      {/* Freccia per toggle */}
       <div
         onClick={() => setIsOpen(!isOpen)}
         style={{
@@ -34,6 +58,8 @@ export default function WhoAmI({ isDarkMode = false }: { isDarkMode?: boolean })
       >
         ⌄
       </div>
+      
+      {/* Linea separatrice che occupa tutta la larghezza */}
       <hr
         style={{
           border: 'none',
@@ -42,19 +68,6 @@ export default function WhoAmI({ isDarkMode = false }: { isDarkMode?: boolean })
           margin: '2rem 0',
         }}
       />
-      {isOpen && (
-        <p
-          style={{
-            fontSize: '1rem',
-            maxWidth: '600px',
-            margin: '0 auto 2rem',
-            color: textColor,
-            lineHeight: 1.6,
-          }}
-        >
-          Hello, I'm Tobia Schettini, a full stack developer passioned in new technologies and design.
-        </p>
-      )}
     </div>
   );
 }

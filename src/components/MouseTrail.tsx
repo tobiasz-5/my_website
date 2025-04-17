@@ -22,7 +22,7 @@ export default function MouseTrail() {
 
       setTimeout(() => {
         setTrails((prev) => prev.filter((t) => t.id !== id));
-      }, 942);
+      }, 1442);
     };
 
     window.addEventListener('mousemove', handleMove);

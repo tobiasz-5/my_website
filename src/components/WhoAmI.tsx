@@ -26,7 +26,7 @@ export default function WhoAmI({ isDarkMode = false }: { isDarkMode?: boolean })
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // ✅ Indica che il componente è montato
+  // ✅ Indica che il componente è montato 
   useEffect(() => {
     setHasMounted(true);
   }, []);

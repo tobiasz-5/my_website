@@ -12,16 +12,14 @@ export default function DraggableLogoMenu() {
     bottom: 0,
   });
   const [clicked, setClicked] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // 👈 NEW
 
   useEffect(() => {
     const handleScroll = () => {
       const blackSection = document.getElementById('black');
       if (!blackSection) return;
 
-      // Ottieni i dati di bounding rect
       const rect = blackSection.getBoundingClientRect();
-
-      // Se la sezione "black" è a meno di "metà viewport" dal top, attiva "black"; altrimenti "white"
       if (rect.top + 200 < window.innerHeight / 2) {
         setActiveSection('black');
       } else {
@@ -30,27 +28,38 @@ export default function DraggableLogoMenu() {
     };
 
     const updateConstraints = () => {
+      const width = isMobile ? 120 : 182; // 👈 width dinamico
+      const height = isMobile ? 60 : 92;  // 👈 height dinamico
+
       setConstraints({
         left: 0,
         top: 0,
-        right: window.innerWidth - 182,
-        bottom: window.innerHeight - 92,
+        right: window.innerWidth - width,
+        bottom: window.innerHeight - height,
       });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', updateConstraints);
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile); // 👈 aggiorna mobile state
+    };
 
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+
+    handleResize();     // 👈 inizializza isMobile
     updateConstraints();
-    handleScroll(); // Chiama subito per inizializzare
+    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', updateConstraints);
+      window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [isMobile]); // 👈 triggera su cambio mobile
 
   const logoSrc = activeSection === 'white' ? '/my_logo_blue.png' : '/my_logo_green.png';
+  const logoWidth = isMobile ? 91 : 182; // 👈
+  const logoHeight = isMobile ? 46 : 92;  // 👈
 
   return (
     <motion.div
@@ -61,8 +70,8 @@ export default function DraggableLogoMenu() {
         position: 'fixed',
         top: 33,
         left: 42,
-        width: 182,
-        height: 92,
+        width: logoWidth,  // 👈
+        height: logoHeight, // 👈
         zIndex: 10000,
         cursor: 'grab',
         display: 'flex',
@@ -81,7 +90,7 @@ export default function DraggableLogoMenu() {
         <span
           style={{
             color: activeSection === 'white' ? '#0070ff' : '#00ff64',
-            fontSize: '0.8rem',
+            fontSize: isMobile ? '0.7rem' : '0.8rem', // 👈 adattabile
             marginTop: 8,
             fontWeight: 'bold',
           }}

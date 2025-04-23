@@ -68,8 +68,8 @@ export default function DraggableLogoMenu() {
       dragConstraints={constraints}
       style={{
         position: 'fixed',
-        top: 33,
-        left: 42,
+        top: 122,
+        left: 272,
         width: logoWidth,  // 👈
         height: logoHeight, // 👈
         zIndex: 10000,

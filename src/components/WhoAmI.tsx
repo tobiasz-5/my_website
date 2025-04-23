@@ -85,7 +85,7 @@ export default function WhoAmI({ isDarkMode = false }: { isDarkMode?: boolean })
       }}
     >
       <div>
-        <span>tobiasz@portfolio:~$ </span>
+        <span>ts@portfolio:~$ </span>
         <span style={{ display: 'inline-block', minWidth: '6ch' }}>
           {typedCommand}
           {!showOutput && <span className="cursor">_</span>}
@@ -94,7 +94,7 @@ export default function WhoAmI({ isDarkMode = false }: { isDarkMode?: boolean })
 
       {showOutput && (
         <div>
-          <span>tobiasz@portfolio:~$ </span>
+          <span>ts@portfolio:~$ </span>
           <span>{outputText}</span>
           <span className="cursor">_</span>
         </div>

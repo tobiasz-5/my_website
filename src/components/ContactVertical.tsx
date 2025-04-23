@@ -31,7 +31,7 @@ export default function ContactVertical({ isDarkMode = false }: { isDarkMode?: b
     <div
       style={{
         position: 'fixed',
-        top: '55%',
+        top: '54%',
         right: 0,
         transform: 'translateY(-50%)',
         display: 'flex',

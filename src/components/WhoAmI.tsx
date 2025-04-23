@@ -6,7 +6,7 @@ export default function WhoAmI({ isDarkMode = false }: { isDarkMode?: boolean })
   const textColor = isDarkMode ? '#00FF88' : '#0070f3';
 
   const commandText = 'whoami';
-  const outputText = "I'm a developer passionate about new technologies and digital design";
+  const outputText = "I'm a developer passionate about new technologies and design";
 
   const [typedCommand, setTypedCommand] = useState('');
   const [index, setIndex] = useState(0);

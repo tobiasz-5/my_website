@@ -19,7 +19,7 @@ export default function AboutMeVertical({ isDarkMode = false }: { isDarkMode?: b
   }, []);
 
   // Valori responsivi
-  const closedWidth = isMobile ? '40px' : '50px';
+  const closedWidth = isMobile ? '22px' : '50px';
   const openWidth = isMobile ? '150px' : '320px';
   const padding = isMobile ? '8px 4px' : '10px 5px';
   const fontSizeTitle = isMobile ? '0.9rem' : '1.1rem';

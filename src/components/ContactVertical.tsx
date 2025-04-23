@@ -20,7 +20,7 @@ export default function ContactVertical({ isDarkMode = false }: { isDarkMode?: b
   }, []);
 
   // Valori condizionali per mobile
-  const closedWidth = isMobile ? '40px' : '50px';
+  const closedWidth = isMobile ? '22px' : '50px';//qui
   const openWidth = isMobile ? '280px' : '320px';
   const padding = isMobile ? '8px 4px' : '10px 5px';
   const fontSizeTitle = isMobile ? '0.9rem' : '1.1rem';

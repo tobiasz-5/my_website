@@ -58,8 +58,8 @@ export default function DraggableLogoMenu() {
   }, [isMobile]); // 👈 triggera su cambio mobile
 
   const logoSrc = activeSection === 'white' ? '/my_logo_blue.png' : '/my_logo_green.png';
-  const logoWidth = isMobile ? 91 : 182; // 👈
-  const logoHeight = isMobile ? 46 : 92;  // 👈
+  const logoWidth = isMobile ? 134 : 182; // 👈
+  const logoHeight = isMobile ? 64 : 92;  // 👈
 
   return (
     <motion.div

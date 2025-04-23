@@ -30,7 +30,7 @@ export default function AboutMeVertical({ isDarkMode = false }: { isDarkMode?: b
     <div
       style={{
         position: 'fixed',
-        top: '50%',
+        top: '55%',
         right: isOpen ? openWidth : closedWidth,
         transform: 'translateY(-50%)',
         display: 'flex',
